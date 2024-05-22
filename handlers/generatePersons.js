@@ -24,7 +24,7 @@ function generatePersons({
       phone: faker.phone.number(),
       birday: faker.date.between({
         from: _birthday_start || "01-01-1970",
-        to: _birthday_end || "01-01-2000",
+        to: _birthday_end || new Date().toISOString().split("T")[0],
       }),
       gender: _gender || faker.person.gender(),
       address: generateAddresses({

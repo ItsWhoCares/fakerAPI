@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+
+const port = process.env.PORT || 443;
+
 const personRouter = require("./routes/persons");
 const addressRouter = require("./routes/address");
 const booksRouter = require("./routes/books");
@@ -29,6 +31,10 @@ app.use("/api/v1", productsRouter);
 app.use("/api/v1", textsRouter);
 app.use("/api/v1", usersRouter);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`);
+// });
+const http = require("http");
+http.createServer(app).listen(80, () => {
+  console.log(`Example app listening on port 80`);
 });
