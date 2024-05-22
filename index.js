@@ -1,0 +1,34 @@
+const express = require("express");
+const app = express();
+const port = 3000;
+const personRouter = require("./routes/persons");
+const addressRouter = require("./routes/address");
+const booksRouter = require("./routes/books");
+const companiesRouter = require("./routes/companies");
+const credit_cardsRouter = require("./routes/credit_cards");
+const imagesRouter = require("./routes/images");
+const placesRouter = require("./routes/places");
+const productsRouter = require("./routes/products");
+const textsRouter = require("./routes/texts");
+const usersRouter = require("./routes/users");
+
+app.get("/api/v1", (req, res) => {
+  res.json({
+    name: "John Doe",
+  });
+});
+
+app.use("/api/v1", addressRouter);
+app.use("/api/v1", personRouter);
+app.use("/api/v1", booksRouter);
+app.use("/api/v1", companiesRouter);
+app.use("/api/v1", credit_cardsRouter);
+app.use("/api/v1", imagesRouter);
+app.use("/api/v1", placesRouter);
+app.use("/api/v1", productsRouter);
+app.use("/api/v1", textsRouter);
+app.use("/api/v1", usersRouter);
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
