@@ -13,6 +13,7 @@ const placesRouter = require("./routes/places");
 const productsRouter = require("./routes/products");
 const textsRouter = require("./routes/texts");
 const usersRouter = require("./routes/users");
+const customRouter = require("./routes/custom");
 
 app.get("/api/v1", (req, res) => {
   res.json({
@@ -30,6 +31,7 @@ app.use("/api/v1", placesRouter);
 app.use("/api/v1", productsRouter);
 app.use("/api/v1", textsRouter);
 app.use("/api/v1", usersRouter);
+app.use("/api/v1", customRouter);
 
 // app.listen(port, () => {
 //   console.log(`Example app listening on port ${port}`);
