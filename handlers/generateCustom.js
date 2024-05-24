@@ -72,19 +72,19 @@ function generateCustom({ _quantity, _locale, _seed, customFields }) {
           custom[j] = faker.internet.email();
           break;
         case "firstName":
-          custom[j] = faker.name.firstName();
+          custom[j] = faker.person.firstName();
           break;
         case "first_name":
-          custom[j] = faker.name.firstName();
+          custom[j] = faker.person.firstName();
           break;
         case "image":
-          custom[j] = faker.image.imageUrl();
+          custom[j] = faker.image.url();
           break;
         case "lastName":
-          custom[j] = faker.name.lastName();
+          custom[j] = faker.person.lastName();
           break;
         case "last_name":
-          custom[j] = faker.name.lastName();
+          custom[j] = faker.person.lastName();
           break;
         case "latitude":
           custom[j] = faker.location.latitude();
@@ -99,13 +99,13 @@ function generateCustom({ _quantity, _locale, _seed, customFields }) {
           custom[j] = faker.location.longitude();
           break;
         case "name":
-          custom[j] = faker.name.findName();
+          custom[j] = faker.person.fullName();
           break;
         case "null":
           custom[j] = null;
           break;
         case "number":
-          custom[j] = faker.datatype.number();
+          custom[j] = faker.number.int();
           break;
         case "phone":
           custom[j] = faker.phone.phoneNumber();
