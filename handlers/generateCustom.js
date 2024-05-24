@@ -1,6 +1,7 @@
 const { faker } = require("@faker-js/faker");
 function generateCustom({ _quantity, _locale, _seed, customFields }) {
   const data = [];
+  if (Object.keys(customFields).length === 0) return false;
   for (let i = 0; i < _quantity && i < 1000; i++) {
     const type = faker.finance.creditCardIssuer();
     custom = {};
