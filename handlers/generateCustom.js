@@ -161,8 +161,9 @@ function generateCustom({ _quantity, _locale, _seed, customFields }) {
           custom[j] = faker.lorem.word();
           break;
         default:
-          custom[j] = null;
-          break;
+          // custom[j] = null;
+          // break;
+          return false;
       }
     }
     data.push(custom);

@@ -9,11 +9,18 @@ router.get("/custom", (req, res) => {
   _quantity = parseInt(_quantity) || 1;
   try {
     const data = generateCustom({
-        _quantity,
-        _locale,
-        _seed,
-        customFields,
+      _quantity,
+      _locale,
+      _seed,
+      customFields,
     });
+    if (data === false) {
+      res.json({
+        status: "ERROR",
+        code: 400,
+        message: "Invalid custom field",
+      });
+    }
     res.json({
       status: "OK",
       code: 200,

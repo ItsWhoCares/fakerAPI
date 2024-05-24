@@ -12,6 +12,41 @@ function generateProducts({
 }) {
   const data = [];
   for (let i = 0; i < _quantity && i < 1000; i++) {
+    let cat = [];
+    switch (_category_type) {
+      case "uuid":
+        cat = [
+          faker.string.uuid(),
+          faker.string.uuid(),
+          faker.string.uuid(),
+          faker.string.uuid(),
+        ];
+        break;
+      case "string":
+        cat = [
+          faker.commerce.department(),
+          faker.commerce.department(),
+          faker.commerce.department(),
+          faker.commerce.department(),
+        ];
+        break;
+      case "integer":
+        cat = [
+          faker.number.bigInt(),
+          faker.number.bigInt(),
+          faker.number.bigInt(),
+          faker.number.bigInt(),
+        ];
+        break;
+      default:
+        cat = [
+          faker.commerce.department(),
+          faker.commerce.department(),
+          faker.commerce.department(),
+          faker.commerce.department(),
+        ];
+        break;
+    }
     const product = {
       id: i + 1,
       name: faker.commerce.productName(),
@@ -40,22 +75,15 @@ function generateProducts({
       net_price: faker.commerce.price({
         min: _price_min,
         max: _price_max,
-        dec: 2,
         symbol: "$",
       }),
-      tax: _taxes,
+      tax: _taxes + "%",
       price: faker.commerce.price({
         min: _price_min,
         max: _price_max,
-        dec: 2,
         symbol: "$",
       }),
-      categories: [
-        faker.string.uuid(),
-        faker.string.uuid(),
-        faker.string.uuid(),
-        faker.string.uuid(),
-      ],
+      categories: cat,
       tags: [
         faker.commerce.department(),
         faker.commerce.department(),
